@@ -7,6 +7,7 @@ const CoverSchema = new Schema({
     capacity: Number,
     securityRating: String,
     coverType: String,
+    imageURL:String,
   });
 
   const Cover = mongoose.model("Cover", CoverSchema);

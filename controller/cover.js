@@ -3,7 +3,7 @@ require("dotenv").config();
 
 exports.createCover = async (req, res, next) => {
   try {
-    const { protocol, dailyCost, capacity, securityRating, coverType } =
+    const { protocol, dailyCost, capacity, securityRating, coverType,imageURL } =
       req.body;
     const existingCover = await Cover.findOne({ protocol });
     if (existingCover) {
@@ -17,6 +17,7 @@ exports.createCover = async (req, res, next) => {
         capacity,
         securityRating,
         coverType,
+        imageURL
       });
       return res.status(200).json({ message: "cover added", newCover });
     }
@@ -56,7 +57,7 @@ exports.deleteCover = async (req, res, next) => {
 
 exports.updateCover = async (req, res, next) => {
   try {
-    const { protocol, dailyCost, capacity, securityRating, coverType } =
+    const { protocol, dailyCost, capacity, securityRating, coverType,imageURL } =
       req.body;
 
     const existingCover = await Cover.findOne({ protocol });
@@ -70,6 +71,7 @@ exports.updateCover = async (req, res, next) => {
     existingCover.capacity = capacity;
     existingCover.securityRating = securityRating;
     existingCover.coverType = coverType;
+    existingCover.imageURL = imageURL;
 
     const updatedCover = await existingCover.save();
 

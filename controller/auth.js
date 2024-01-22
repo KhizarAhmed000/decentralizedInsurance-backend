@@ -24,7 +24,7 @@ exports.signup = async (req, res, next) => {
       };
       const jwtSecret = process.env.JWT_SECRET;
       const token = await jwt.sign(obj, jwtSecret);
-      return res.status(200).json({ message: "signup", newAdmin, token });
+      return res.status(200).json({ message: "signup success", newAdmin, token });
     }
   } catch (error) {
     return res.status(500).json({ message: "internal server error" });

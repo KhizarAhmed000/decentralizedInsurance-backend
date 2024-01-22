@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require('./router/auth')
+const coverRoutes = require('./router/cover')
 require("dotenv").config();
 
 
@@ -14,8 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/auth',authRoutes)
-app.use('/api',appRoutes)
-
+app.use('/cover',coverRoutes)
 mongoose.connect(MONGO_URL).then(()=>{
     console.log("database connected");
 }).catch((error)=>{

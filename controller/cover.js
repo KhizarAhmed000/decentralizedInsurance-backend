@@ -59,7 +59,7 @@ exports.updateCover = async (req, res, next) => {
   try {
     const { protocol, dailyCost, capacity, securityRating, coverType,imageURL } =
       req.body;
-
+ 
     const existingCover = await Cover.findOne({ protocol });
 
     if (!existingCover) {

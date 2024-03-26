@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const authRoutes = require('./router/auth')
 const coverRoutes = require('./router/cover')
 const userRoutes = require('./router/user')
-
+const claimRoutes = require('./router/claim')
 require("dotenv").config();
 
 
@@ -19,6 +19,8 @@ app.use(cors());
 app.use('/auth',authRoutes)
 app.use('/cover',coverRoutes)
 app.use('/user',userRoutes)
+app.use('/claim',claimRoutes)
+
 
 mongoose.connect(MONGO_URL).then(()=>{
     console.log("database connected");

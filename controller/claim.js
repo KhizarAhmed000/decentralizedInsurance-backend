@@ -6,9 +6,9 @@ exports.createClaim = async (req, res, next) => {
         const { protocol, coverType, ownerAddress, coverAmount, coverPeriod, lossTime, lossAmount, claimAmount, description } = req.body;
 
         
-        if (!protocol || !coverType || !ownerAddress || !coverAmount || !coverPeriod) {
-            return res.status(400).json({ status: 400, message: "Missing required fields",stuff:{protocol,coverType,ownerAddress,coverAmount,coverPeriod} });
-        }
+        // if (!protocol || !coverType || !ownerAddress || !coverAmount || !coverPeriod) {
+        //     return res.status(400).json({ status: 400, message: "Missing required fields",stuff:{protocol,coverType,ownerAddress,coverAmount,coverPeriod} });
+        // }
 
         const existingClaim = await Claim.findOne({ protocol });
         if (existingClaim) {
